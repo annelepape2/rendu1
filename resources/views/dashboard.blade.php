@@ -3,11 +3,12 @@
     <section class="row new-post">
         <div class="col-md-3 col-md-offset-3">
             <header><h3>Commentaire</h3></header>
-                <form action="">
+                <form action="{{ route('post.create') }}" method="post">
                     <div class="form-group">
-                        <textarea class="form-control" name="new-post" id="new-post" rows="5" placeholder="commentaire"></textarea>
+                        <textarea class="form-control" name="body" id="new-post" rows="5" placeholder="commentaire"></textarea>
                     </div>
                         <button type="submit" class="button btn-primary">Envoyer</button>
+                    <input type="hidden" value="{{ Session::token() }}" name="_token">
                 </form>
         </div>
     </section>
