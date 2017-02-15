@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+/*
+Route::get('/photo', function() {
+    return 'upload photos';
+});
+*/
+
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+    Route::post('/signup', [
+        'uses' => 'UserController@postSignUp',
+        'as' => 'signup'
+    ]);
 });
